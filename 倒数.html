@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="date"></div>
+    <script>
+        var end = new Date("2025-3-3 00:00")  //截止日期
+        function countdown(){
+            var now = new Date()
+            var day,hour,minute,second,str,remainder = end-now
+            if (remainder<0){
+                return
+            }
+            day = Math.floor(remainder/1000/60/60/24)
+            hour = Math.floor(remainder/1000/60/60%24)
+            minute = Math.floor(remainder/1000/60%60)
+            second = Math.floor(remainder/1000%60)
+            str = day+"天"+hour+"小时"+minute+"分钟"+second+"秒"
+            document.getElementById("date").innerHTML = str
+            setTimeout(countdown,1000)
+        }
+        countdown()
+
+        // 获取当前时间毫秒数
+        // var date = new Date()
+        // +date
+        // date.getTime()
+        // date.valueOf()
+        // Date.now()
+    </script>
+    
+</body>
+</html>
